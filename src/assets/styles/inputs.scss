@@ -1,0 +1,28 @@
+@import "../../assets/styles/variables";
+.txt-field {
+  background: #fff;
+  border: 1px solid #dedede;
+  border-radius: 5px;
+  outline: none;
+  height: 46px;
+  padding: 5px 15px;
+  width: 100%;
+  transition: 0.3s;
+  &::placeholder {
+    color: #999;
+  }
+  &.has-error {
+    border-color: $error;
+  }
+}
+
+.txt-label {
+  display: block;
+  font-size: .7rem;
+  font-weight: 500;
+  letter-spacing: 1px;
+  color: #4a515f;
+  text-transform: uppercase;
+  margin-bottom: 5px;
+  margin-top: 20px;
+}

@@ -1,0 +1,44 @@
+@import "variables";
+.notification-container {
+  padding-bottom: 15px;
+  .notification-message {
+    font-size: 14px;
+  }
+  .notification {
+    box-shadow: 0 3px 8px -5px rgba(0, 0, 0, 0.25);
+    border-bottom: 2px solid transparent;
+    &:before {
+      content: '';
+      font-family: 'themify';
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 25px;
+      height: 25px;
+      border-radius: 30px;
+      font-size: 13px;
+      font-weight: 600;
+      line-height: 1;
+    }
+    .notification-message {
+      color: #333;
+    }
+    &-error {
+      background: #fff;
+      border-bottom-color: $error;
+      &:before {
+        content: "\e646";
+        background: $error;
+      }
+    }
+    &-success {
+      background: #fff;
+      border-bottom-color: $success;
+      &:before {
+        content: "\e64c";
+        background: $success;
+      }
+    }
+  }
+}

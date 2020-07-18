@@ -1,0 +1,66 @@
+@import "../../assets/styles/variables";
+.signIn {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.card {
+  background: #fff;
+  border-radius: 5px;
+  padding: 35px 40px;
+  box-shadow: 0 20px 60px -30px rgba(0,0,0,.25);
+  max-width: 100%;
+  width: 400px;
+  margin: 15px auto;
+  &__logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    img {
+      width: 75px;
+    }
+    span {
+      font-size: 22px;
+      font-weight: 500;
+      color: #333;
+    }
+  }
+  h1 {
+    text-align: center;
+    font-size: 16px;
+    font-weight: 500;
+    color: #999;
+    margin: 5px 0 15px 0;
+  }
+  .txt {
+    text-align: center;
+    font-size: 14px;
+    font-weight: 400;
+    color: #999;
+    margin: 25px 0 0 0;
+  }
+}
+
+.btn-submit {
+  width: 100%;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 15px;
+  background: $primary;
+  color: #fff;
+  margin-top: 20px;
+  transition: 0.3s;
+  &:hover {
+    background: #333;
+  }
+  &:disabled {
+    cursor: default;
+    background: #eee;
+    color: #333;
+    &:hover {
+      background: #eee;
+    }
+  }
+}
