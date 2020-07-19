@@ -1,12 +1,5 @@
-.default {
-  &__right {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    min-height: 100vh;
-    img {
-      width: 100%;
-      margin: 0 50px;
-    }
-  }
+@import "../assets/styles/variables";
+
+.hasOffset {
+  padding-left: calc(#{$aside} + 30px);
 }

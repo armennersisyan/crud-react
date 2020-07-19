@@ -4,7 +4,6 @@ const initialState = {
 };
 
 function auth(state = initialState, action) {
-  console.log('action', action);
   switch (action.type) {
     case 'LOGIN':
       return {
@@ -22,7 +21,7 @@ function auth(state = initialState, action) {
         isPending: action.status,
       };
     default:
-      return initialState;
+      return state;
   }
 }
 

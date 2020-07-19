@@ -1,11 +1,14 @@
-import React, { useEffect, useCallback } from 'react';
+import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import { useHistory } from 'react-router-dom';
-import { useSelector } from 'react-redux';
+import Aside from '../components/Sidebar';
+import Header from '../components/Header';
+import styles from './styles.module.scss';
 
 function AuthLayout({ children }) {
   const history = useHistory();
-  const user = useSelector((state) => state.auth && state.auth.user);
+  
+  const [sidebarOpen] = useState(true);
   
   /**
    * Check if token doesn't exist in localStorage and redirects to /sign-up page
@@ -15,20 +18,15 @@ function AuthLayout({ children }) {
     if (!token) {
       history.push('/sign-up')
     }
-  }, []);
-  
-  const handleUserLogout = useCallback(() => {
-      localStorage.removeItem('auth-token');
-      history.push('/sign-in')
-  },[history]);
+  }, [history]);
   
   return (
-    <div>
-      <h1>AuthLayout</h1>
-      <button onClick={handleUserLogout}>Log out</button>
-      <p>{JSON.stringify(user)}</p>
-      <img src={user?.avatarUrl} alt="avatar" />
-      { children }
+    <div className="wrapper">
+      <Header sidebarOpen={sidebarOpen} />
+      <Aside open={sidebarOpen} />
+      <div className={`${sidebarOpen ? styles.hasOffset : ''}`}>
+        { children }
+      </div>
     </div>
   );
 }

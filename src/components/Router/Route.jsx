@@ -9,17 +9,19 @@ import { getUserRequest } from '../../store/actions';
 function RouteWrapper({ component: Component, isPrivate, ...rest }) {
   const dispatch = useDispatch();
   const history = useHistory();
+  const token = localStorage.getItem('auth-token');
+  
+  if (token && !isPrivate) {
+    history.push('/home')
+  }
   
   /**
    * Check if token exists in localStorage and requests a user's data
    */
   useEffect(() => {
-    const token = localStorage.getItem('auth-token');
     if (!token) return;
-    dispatch(getUserRequest(token)).then(() => {
-      history.push('/home')
-    });
-  }, []);
+    dispatch(getUserRequest(token))
+  }, [dispatch, history, token]);
   
   /**
    * Switch corresponding Layout

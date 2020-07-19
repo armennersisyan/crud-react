@@ -1,0 +1,93 @@
+@import "../../assets/styles/variables";
+.topic-item {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #fff;
+  border: 1px solid #eee;
+  min-height: 95px;
+  padding: 15px;
+  margin: 15px 0;
+  transition: 0.3s;
+  box-shadow: 0 4px 12px 0 rgba(0, 0, 0, 0.05);
+  &--new {
+    cursor: pointer;
+    flex-direction: column;
+  }
+  &__title {
+    font-size: 14px;
+    font-weight: 500;
+  }
+  &__delete-btn {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(75, 96, 203, 0);
+    border: none;
+    line-height: 1;
+    width: 23px;
+    height: 23px;
+    font-size: 14px;
+    border-radius: 30px;
+    background: $error;
+    color: #fff;
+  }
+  &__vote-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(75, 96, 203, 0);
+    border: none;
+    line-height: 1;
+    svg {
+      g [fill] {
+        fill: #999;
+        transition: 0.3s;
+      }
+    }
+    &.voted {
+      g [fill] {
+        fill: $primary;
+        transition: 0.3s;
+      }
+    }
+  }
+  &__votes {
+    font-size: 14px;
+    color: $primary;
+  }
+  &__add {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(75, 96, 203, 0);
+    border: none;
+    line-height: 1;
+    svg {
+      width: 35px !important;
+      height: 35px !important;
+      g [fill] {
+        fill: $primary;
+        transition: 0.3s;
+      }
+    }
+  }
+  &__add-txt {
+    font-size: 14px;
+    font-weight: 500;
+    color: $primary;
+    margin-bottom: 0;
+    margin-top: 5px;
+  }
+  &__vote-wrapper {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: space-between;
+    min-width: 60px;
+  }
+}

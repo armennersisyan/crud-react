@@ -1,0 +1,44 @@
+.team-item {
+  position: relative;
+  background: #fff;
+  text-align: center;
+  margin: 15px 0;
+  transition: 0.3s;
+  box-shadow: 0 4px 12px 0 rgba(0, 0, 0, 0.05);
+  border: 1px solid #eee;
+  padding: 45px 15px 15px 15px;
+  &__project {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: #eee;
+    color: #333;
+    padding: 4px 7.5px;
+    font-size: 12px;
+    font-weight: 500;
+    border-radius: 5px;
+  }
+  &__topic {
+    color: #999;
+    font-size: 17px;
+    font-weight: 400;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 15px;
+    margin-bottom: 15px;
+  }
+  &__member {
+    img {
+      width: 25px;
+      height: 25px;
+      border-radius: 50px;
+      margin: 0 2.5px;
+    }
+  }
+  h4 {
+    margin-bottom: 0px;
+  }
+  &__members {
+    display: flex;
+    justify-content: center;
+  }
+}
