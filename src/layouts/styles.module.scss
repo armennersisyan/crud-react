@@ -1,5 +1,12 @@
 @import "../assets/styles/variables";
 
+.authWrapper {
+  transition: 0.3s;
+}
+
 .hasOffset {
-  padding-left: calc(#{$aside} + 30px);
+  padding-left: $aside;
+  @media only screen and (max-width: 600px) {
+    padding-left: 0;
+  }
 }

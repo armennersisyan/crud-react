@@ -9,6 +9,20 @@
   box-shadow: 0 20px 60px -30px rgba(0, 0, 0, 0.25);
   background: #1e1e2d;
   z-index: 10;
+  opacity: 0;
+  transition: 0.3s;
+  transform: translateX(-100%);
+  @media only screen and (max-width: 600px) {
+    width: 100%;
+    min-height: 100vh;
+    top: 0;
+    left: 0;
+  }
+  &--open {
+    opacity: 1;
+    transform: translateX(0);
+    box-shadow: none;
+  }
   &__brand {
     display: flex;
     align-items: center;

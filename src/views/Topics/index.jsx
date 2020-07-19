@@ -5,12 +5,14 @@ import { Row } from 'react-bootstrap';
 import Topic from '../../components/Topics/Topic';
 import NewTopic from '../../components/Topics/NewTopic';
 import NewTopicModal from '../../components/Topics/NewTopicModal';
+import Loader from "../../components/UI/Loader";
 
 function Topics() {
   const dispatch = useDispatch();
   const topics = useSelector((state) => state.topics && state.topics.topics);
   
   const [openModal, setOpenModal] = useState(false);
+  const [loading, setLoading] = useState(false);
   
   function handleModal(status = true) {
     setOpenModal(status)
@@ -18,22 +20,31 @@ function Topics() {
   
   useEffect(() => {
     if (!topics?.length)
-    dispatch(getTopicsRequest())
+    setLoading(true);
+    dispatch(getTopicsRequest()).finally(() => {
+      setLoading(false);
+    })
   }, [dispatch]);
   
   return (
     <div>
       <h1>Topics</h1>
-      <Row>
-        <NewTopic openModal={handleModal} />
-        { topics && topics.map(topic => (
-          <Topic
-            key={topic.id}
-            item={topic}
-          />
-        )) }
-      </Row>
-      <NewTopicModal show={openModal} toggleModal={handleModal} />
+      { loading ? (
+        <Loader />
+      ) : (
+        <>
+          <Row>
+            <NewTopic openModal={handleModal} />
+            { topics && topics.map(topic => (
+              <Topic
+                key={topic.id}
+                item={topic}
+              />
+            )) }
+          </Row>
+          <NewTopicModal show={openModal} toggleModal={handleModal} />
+        </>
+      ) }
     </div>
   );
 }

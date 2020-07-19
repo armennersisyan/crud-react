@@ -12,24 +12,37 @@ const initialState = {
           avatarUrl: 'https://ca.slack-edge.com/T013US0Q0HE-U01578HQXEZ-9bc7ee959b7c-512'
         },
         {
-          firstName: 'Name',
+          firstName: 'Name2',
           lastName: 'Lname',
           avatarUrl: ''
         },
         {
-          firstName: 'Name',
+          firstName: 'Name3',
           lastName: 'Lname',
           avatarUrl: ''
         },
         {
-          firstName: 'Name',
+          firstName: 'Name4',
           lastName: 'Lname',
           avatarUrl: ''
         },
         {
-          firstName: 'Name',
+          firstName: 'Name5',
           lastName: 'Lname',
           avatarUrl: ''
+        },
+      ]
+    },
+    {
+      id: 2,
+      name: 'Online Shop',
+      topic: 'E-commerce',
+      project: 'Shop',
+      members: [
+        {
+          firstName: 'Namea',
+          lastName: 'Lnameaaaa',
+          avatarUrl: 'https://ca.slack-edge.com/T013US0Q0HE-U01578HQXEZ-9bc7ee959b7c-512'
         },
       ]
     },

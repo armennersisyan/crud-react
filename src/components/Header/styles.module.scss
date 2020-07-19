@@ -7,15 +7,19 @@
   width: 100%;
   display: flex;
   align-items: center;
-  justify-content: flex-end;
+  justify-content: space-between;
   background: #fff;
   height: 60px;
-  padding-right: 30px;
+  padding: 0 30px;
   border-bottom: 1px solid #eee;
   box-shadow: 0 4px 12px 0 rgba(0, 0, 0, 0.05);
+  transition: 0.3s;
   z-index: 9;
   &.hasOffset {
     padding-left: calc(#{$aside} + 30px);
+    @media only screen and (max-width: 600px) {
+      padding-left: 0;
+    }
   }
   .user {
     img {
@@ -27,6 +31,23 @@
     span {
       font-size: 15px;
       font-weight: 500;
+    }
+  }
+  .toggler {
+    background: transparent;
+    border: none;
+    padding: 0;
+    margin: 0;
+    transform: rotate(180deg);
+    transition: 0.3s;
+    svg {
+      g [fill] {
+        fill: #494b74;
+        transition: 0.3s;
+      }
+    }
+    &--open {
+      transform: rotate(0);
     }
   }
 }

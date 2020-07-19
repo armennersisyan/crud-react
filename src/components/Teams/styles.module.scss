@@ -6,7 +6,7 @@
   transition: 0.3s;
   box-shadow: 0 4px 12px 0 rgba(0, 0, 0, 0.05);
   border: 1px solid #eee;
-  padding: 45px 15px 15px 15px;
+  padding: 15px;
   &__project {
     position: absolute;
     top: 10px;
@@ -40,5 +40,18 @@
   &__members {
     display: flex;
     justify-content: center;
+  }
+  &__icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background: #4b60cb;
+    margin: 0 auto 15px auto;
+    img {
+      width: 50px;
+    }
   }
 }

@@ -1,4 +1,5 @@
 import React, { useCallback } from 'react';
+import { useSelector } from "react-redux";
 import { Link, useHistory } from 'react-router-dom';
 import { logOut } from '../../components/UI/Icons';
 import links from './links';
@@ -6,6 +7,7 @@ import styles from './styles.module.scss';
 
 function Sidebar() {
   const history = useHistory();
+  const layout = useSelector((state) => state.layout);
   
   const handleUserLogout = useCallback(() => {
     localStorage.removeItem('auth-token');
@@ -13,7 +15,7 @@ function Sidebar() {
   },[history]);
   
   return (
-    <aside className={styles.aside}>
+    <aside className={`${styles.aside} ${layout.sidebar ? styles['aside--open'] : ''}`}>
       <div className={styles['aside__brand']}>
         <span>Team Builder</span>
       </div>
