@@ -1,4 +1,4 @@
-import { layer, topics, user, projects } from '../../components/UI/Icons';
+import { layer, topics, projects } from '../../components/UI/Icons';
 
 const links = [
   {
@@ -15,11 +15,6 @@ const links = [
     name: 'Our Projects',
     to: '/projects',
     icon: projects
-  },
-  {
-    name: 'Profile Settings',
-    to: '/settings',
-    icon: user
   },
 ];
 
