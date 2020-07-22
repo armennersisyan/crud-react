@@ -8,6 +8,13 @@ export function loginUserSuccess(payload) {
   };
 }
 
+export function setCompanies(payload) {
+  return {
+    type: 'SET_COMPANIES',
+    payload,
+  };
+}
+
 export function signUserPending(status) {
   return {
     type: 'PENDING',
@@ -30,8 +37,8 @@ export function registerUserRequest(payload) {
     try {
       response = await API.post('users/register', {
         ...payload,
-        avatarUrl: 'https://ca.slack-edge.com/T013US0Q0HE-U01578HQXEZ-9bc7ee959b7c-512',
-        companyId: 1
+        companyId: Number(payload.company),
+        avatarUrl: 'https://ca.slack-edge.com/T013US0Q0HE-U01578HQXEZ-9bc7ee959b7c-512'
       });
       NotificationManager.success('You have registered successfully!', 'Congratulations!');
     } catch (error) {
@@ -77,6 +84,18 @@ export function getUserRequest(token) {
       return error
     } finally {
       dispatch(signUserPending(false));
+    }
+  }
+}
+
+export function getCompaniesRequest() {
+  return async function action(dispatch) {
+    try {
+      let response = await API.get('companies');
+      dispatch(setCompanies(response.data));
+      return response;
+    } catch (error) {
+      return error
     }
   }
 }

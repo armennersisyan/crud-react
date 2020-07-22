@@ -1,52 +1,5 @@
 const initialState = {
-  teams: [
-    {
-      id: 1,
-      name: 'Editor',
-      topic: 'Hooks',
-      project: 'Canvas',
-      members: [
-        {
-          firstName: 'Name',
-          lastName: 'Lname',
-          avatarUrl: 'https://ca.slack-edge.com/T013US0Q0HE-U01578HQXEZ-9bc7ee959b7c-512'
-        },
-        {
-          firstName: 'Name2',
-          lastName: 'Lname',
-          avatarUrl: ''
-        },
-        {
-          firstName: 'Name3',
-          lastName: 'Lname',
-          avatarUrl: ''
-        },
-        {
-          firstName: 'Name4',
-          lastName: 'Lname',
-          avatarUrl: ''
-        },
-        {
-          firstName: 'Name5',
-          lastName: 'Lname',
-          avatarUrl: ''
-        },
-      ]
-    },
-    {
-      id: 2,
-      name: 'Online Shop',
-      topic: 'E-commerce',
-      project: 'Shop',
-      members: [
-        {
-          firstName: 'Namea',
-          lastName: 'Lnameaaaa',
-          avatarUrl: 'https://ca.slack-edge.com/T013US0Q0HE-U01578HQXEZ-9bc7ee959b7c-512'
-        },
-      ]
-    },
-  ],
+  teams: [],
 };
 
 function teams(state = initialState, action) {
@@ -54,6 +7,7 @@ function teams(state = initialState, action) {
     case 'SET_TEAMS':
       return {
         ...state,
+        teams: action.payload
       };
     default:
       return state;

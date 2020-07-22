@@ -1,9 +1,9 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers';
 import * as yup from 'yup';
 import { Container } from 'react-bootstrap';
-import { registerUserRequest } from '../../store/actions'
+import { registerUserRequest, getCompaniesRequest } from '../../store/actions'
 import { useDispatch, useSelector } from 'react-redux';
 import { Link, useHistory } from 'react-router-dom';
 import Error from '../../components/UI/Error';
@@ -20,6 +20,7 @@ const schema = yup.object().shape({
     .required('Email field is required'),
   birthDate: yup.string().required('Birthday field is required'),
   sex: yup.string().required('Choose your gender'),
+  company: yup.string().required('Choose your Company'),
   jsExperience: yup.string().required('JS experience field is required'),
   reactExperience: yup.string().required('React experience field is required'),
   password: yup
@@ -31,11 +32,17 @@ const schema = yup.object().shape({
 function SignUp() {
   const history = useHistory();
   const dispatch = useDispatch();
+  const companies = useSelector((state) => state?.auth?.companies);
   const { register, errors, handleSubmit } = useForm({
     resolver: yupResolver(schema)
   });
   
-  const isPending = useSelector((state) => state.auth && state.auth.isPending)
+  useEffect(() => {
+    if (companies.length) return;
+    dispatch(getCompaniesRequest())
+  }, []);
+  
+  const isPending = useSelector((state) => state.auth && state.auth.isPending);
   
   function onSubmit(data) {
     dispatch(registerUserRequest(data)).then((res) => {
@@ -105,6 +112,18 @@ function SignUp() {
               <option value="female">Female</option>
             </select>
             <Error show={errors.sex?.message}>{ errors.sex?.message }</Error>
+  
+            <label className="txt-label">Choose your Company</label>
+            <select
+              name="company"
+              id="company"
+              className={`txt-field ${errors.company?.message ? 'has-error' : null}`}
+              ref={register}
+            >
+              { companies && companies.map(c => (
+                <option value={c.id} key={c.id}>{c.name}</option>
+              )) }
+            </select>
   
             <label htmlFor="jsExperience" className="txt-label">JavaScript Experience</label>
             <input

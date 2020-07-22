@@ -28,7 +28,7 @@ function Topic({ item }) {
             <i className="ti-trash" />
           </button>
         ) }
-        <h4 className={styles['topic-item__title']}>{item.title}</h4>
+        <h4 className={styles['topic-item__title']} title={item.title}>{item.title}</h4>
         <div className={styles['topic-item__vote-wrapper']}>
           <button
             onClick={() => handleVoteClick(item.id, item.votedByMe)}

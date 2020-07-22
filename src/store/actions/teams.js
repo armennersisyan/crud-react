@@ -1,5 +1,12 @@
 import API from "../../utils/api";
 
+export function setTeams(payload) {
+  return {
+    type: 'SET_TEAMS',
+    payload,
+  };
+}
+
 export function getTeamsRequest() {
   return async function action(dispatch) {
     const token = localStorage.getItem('auth-token');
@@ -11,6 +18,7 @@ export function getTeamsRequest() {
           token
         },
       });
+      dispatch(setTeams(response.data))
     } catch (error) {
       return response;
     }

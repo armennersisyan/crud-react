@@ -1,6 +1,7 @@
 const initialState = {
   user: null,
   isPending: false,
+  companies: [],
 };
 
 function auth(state = initialState, action) {
@@ -19,6 +20,11 @@ function auth(state = initialState, action) {
       return {
         ...state,
         isPending: action.status,
+      };
+    case 'SET_COMPANIES':
+      return {
+        ...state,
+        companies: action.payload,
       };
     default:
       return state;
